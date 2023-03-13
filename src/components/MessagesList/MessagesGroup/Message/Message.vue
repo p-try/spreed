@@ -844,7 +844,7 @@ export default {
 	position: relative;
 
 	&__last {
-		margin-bottom: 12px;
+		margin-bottom: 8px;
 	}
 }
 
@@ -922,7 +922,7 @@ export default {
 		right: 0;
 		width: fit-content;
 		height: 100%;
-		padding: 8px 8px 0 0;
+		padding: 4px 4px 0 0;
 	}
 
 	&__reactions {

@@ -729,7 +729,7 @@ export default {
 
 			const { scrollHeight, scrollTop, clientHeight } = this.$refs.scroller
 			const scrollOffset = scrollHeight - scrollTop
-			const tolerance = 10
+			const tolerance = 20
 
 			// For chats, scrolled to bottom or / and fitted in one screen
 			if (scrollOffset < clientHeight + tolerance && scrollOffset > clientHeight - tolerance) {
