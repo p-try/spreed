@@ -28,7 +28,6 @@
 		<NcAppContent>
 			<router-view />
 		</NcAppContent>
-		<RightSidebar :show-chat-in-sidebar="isInCall" />
 		<PreventUnload :when="warnLeaving || isSendingMessages" />
 		<DeviceChecker :initialize-on-mounted="false" />
 		<UploadEditor />
@@ -52,7 +51,6 @@ import isMobile from '@nextcloud/vue/dist/Mixins/isMobile.js'
 import ConversationSettingsDialog from './components/ConversationSettings/ConversationSettingsDialog.vue'
 import DeviceChecker from './components/DeviceChecker/DeviceChecker.vue'
 import LeftSidebar from './components/LeftSidebar/LeftSidebar.vue'
-import RightSidebar from './components/RightSidebar/RightSidebar.vue'
 import SettingsDialog from './components/SettingsDialog/SettingsDialog.vue'
 import UploadEditor from './components/UploadEditor.vue'
 
@@ -82,7 +80,6 @@ export default {
 		NcContent,
 		LeftSidebar,
 		PreventUnload,
-		RightSidebar,
 		UploadEditor,
 		SettingsDialog,
 		ConversationSettingsDialog,

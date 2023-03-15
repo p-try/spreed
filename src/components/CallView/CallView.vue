@@ -685,18 +685,10 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/variables';
 
-.call-view {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	background-color: $color-call-background;
-}
-
 #call-container {
+	position: relative;
 	width: 100%;
 	height: 100%;
-	background-color: $color-call-background;
-	backdrop-filter: blur(25px);
 }
 
 #videos {
