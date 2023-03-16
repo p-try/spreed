@@ -136,24 +136,16 @@ describe('LeftSidebar.vue', () => {
 			expect(conversationsListMock).toHaveBeenCalled()
 
 			const appNavEl = wrapper.findComponent({ name: 'NcAppNavigation' })
-			const listEl = appNavEl.findComponent({ name: 'ConversationsList' })
 
-			expect(listEl.exists()).toBe(true)
-			expect(listEl.props('searchText')).toBe('')
-			expect(listEl.props('initialisedConversations')).toBe(false)
+			// Check that all the conversations are rendered
+			const conversationsArray = appNavEl.findAllComponents({ name: 'Conversation' })
+			expect(conversationsArray.length).toBe(conversationsList.length)
 
 			expect(conversationsReceivedEvent).not.toHaveBeenCalled()
 
 			// move on past the fetchConversation call
 			await wrapper.vm.$nextTick()
 			await wrapper.vm.$nextTick()
-
-			expect(listEl.props('initialisedConversations')).toBe(true)
-			expect(listEl.props('conversationsList')).toStrictEqual([
-				conversationsList[2],
-				conversationsList[0],
-				conversationsList[1],
-			])
 
 			expect(conversationsReceivedEvent).toHaveBeenCalledWith({
 				singleConversation: false,
@@ -357,14 +349,6 @@ describe('LeftSidebar.vue', () => {
 				expect(captionListEl.at(2).props('title')).toStrictEqual('Users')
 				expect(captionListEl.at(3).props('title')).toStrictEqual('Groups')
 				expect(captionListEl.at(4).props('title')).toStrictEqual('Circles')
-
-				const listEl = appNavEl.findComponent({ name: 'ConversationsList' })
-
-				expect(listEl.exists()).toBe(true)
-				expect(listEl.props('conversationsList')).toStrictEqual([
-					conversationsList[0],
-					conversationsList[1],
-				])
 
 				const listedEls = appNavEl.findAllComponents({ name: 'Conversation' })
 				expect(listedEls.exists()).toBe(true)
